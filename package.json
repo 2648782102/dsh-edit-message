@@ -28,7 +28,6 @@
   "engines": {
     "dsh": ">=0.2.2-rc.3"
   },
-  "main": "index.js",
   "exports": {
     ".": "./index.js",
     "./client": "./client.js",
@@ -57,5 +56,6 @@
         "@deepseek-ai/dsh-client-ui-session"
       ]
     }
-  }
+  },
+  "main": "index.js"
 }

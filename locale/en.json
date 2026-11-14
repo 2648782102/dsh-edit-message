@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Edit and resend",
+    "description": "A pencil on each of your own messages edits it and resends it on a new branch, even while the reply is still streaming (the running turn stops first). The original conversation stays unchanged; editing the first message starts a new Session instead. Messages with images, attachments, or references are not supported."
+  }
+}

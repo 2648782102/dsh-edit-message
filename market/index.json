@@ -1,0 +1,43 @@
+{
+  "format": 1,
+  "title": { "en": "flowli's DSH plugins", "zh": "flowli 的 DSH 插件" },
+  "description": {
+    "en": "Plugins for DeepSeek Harness by flowli.",
+    "zh": "flowli 写的 DeepSeek Harness 插件。"
+  },
+  "metadata": {
+    "categories": {
+      "chat": { "title": { "en": "Chat", "zh": "对话" } },
+      "editing": { "title": { "en": "Editing", "zh": "编辑" } }
+    },
+    "labels": {
+      "branch": { "title": { "en": "Branches", "zh": "分支" } }
+    },
+    "sortKeys": {
+      "publish": { "title": { "en": "Published", "zh": "发布时间" }, "order": "desc" }
+    }
+  },
+  "plugins": [
+    {
+      "name": "dsh-edit-message",
+      "title": { "en": "Edit and resend", "zh": "编辑并重发" },
+      "description": {
+        "en": "A pencil on each of your own messages: edit it and resend on a new branch, even while the agent is still replying. The running turn stops first, the original conversation stays untouched.",
+        "zh": "在你自己的消息上加一支铅笔：改写后在新分支重发，回复过程中也能改（会先停止当前回复），原对话保持不变。"
+      },
+      "icon": "icons/dsh-edit-message.svg",
+      "author": "flowli",
+      "homepage": "https://github.com/2648782102/dsh-edit-message#readme",
+      "repository": { "url": "https://github.com/2648782102/dsh-edit-message" },
+      "metadata": { "category": "chat", "labels": ["branch"], "sortKeys": { "publish": 0 } },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1794669600,
+          "source": { "type": "npm" },
+          "engines": { "dsh": ">=0.2.2-rc.3" }
+        }
+      ]
+    }
+  ]
+}
