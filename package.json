@@ -1,0 +1,61 @@
+{
+  "name": "dsh-edit-message",
+  "version": "0.1.0",
+  "description": "Edit one of your own messages and resend it: the running reply stops, the conversation branches at the previous turn, and the edited text is sent into the branch.",
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "flowli",
+    "url": "https://github.com/2648782102"
+  },
+  "homepage": "https://github.com/2648782102/dsh-edit-message#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2648782102/dsh-edit-message.git"
+  },
+  "bugs": {
+    "url": "https://github.com/2648782102/dsh-edit-message/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "edit",
+    "resend",
+    "branch",
+    "chat"
+  ],
+  "engines": {
+    "dsh": ">=0.2.2-rc.3"
+  },
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-chat",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-session"
+      ]
+    }
+  }
+}
