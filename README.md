@@ -8,7 +8,7 @@ A DeepSeek Harness plugin: edit one of your own messages and resend it — even 
 dsh plugin --profile <profile> add dsh-edit-message
 ```
 
-Or from the app: open **Plugins** > **Discover**, add the index source below, then **Edit and resend** > **Install**. Remove it with `dsh plugin --profile <profile> remove dsh-edit-message`.
+Or from the app: open **Plugins** > **Discover**, add the index source below, then **Edit and resend** > **Install**. Installing through Discover only adds the package — flip its switch on in **Installed** to activate it (the CLI route below enables it immediately). Remove it with `dsh plugin --profile <profile> remove dsh-edit-message`.
 
 Requires DSH `>=0.2.2-rc.3`. Nothing is added on the Host: the bundle inserts one Client module and two slot entries.
 

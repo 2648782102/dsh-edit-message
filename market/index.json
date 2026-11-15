@@ -49,8 +49,8 @@
         "zh": "编辑并重发"
       },
       "description": {
-        "en": "A pencil on each of your own messages: edit it and resend on a new branch, even while the agent is still replying. The running turn stops first, the original conversation stays untouched.",
-        "zh": "在你自己的消息上加一支铅笔：改写后在新分支重发，回复过程中也能改（会先停止当前回复），原对话保持不变。"
+        "en": "A pencil on each of your own messages: edit it and resend on a new branch, even while the agent is still replying. The running turn stops first, the original conversation stays untouched. After installing from Discover, turn it on under Installed.",
+        "zh": "在你自己的消息上加一支铅笔：改写后在新分支重发，回复过程中也能改（会先停止当前回复），原对话保持不变。从「发现」安装后，在「已安装」里打开开关才会生效。"
       },
       "icon": "icons/dsh-edit-message.svg",
       "author": "flowli",
