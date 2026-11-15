@@ -1,5 +1,5 @@
 window.__ModuleLoader__.load({
-  id: '@local/dsh-edit-resend',
+  id: 'dsh-edit-message',
   factory(require) {
     const React = require('react')
     const h = React.createElement
