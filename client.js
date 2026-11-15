@@ -17,10 +17,10 @@ window.__ModuleLoader__.load({
       'action.unavailable.content': '带图片、附件或引用的消息暂不支持编辑重发',
       'action.unavailable.missing': '找不到这条消息',
       'dialog.title': '编辑并重发',
-      'dialog.hint': '将基于这条消息之前的内容创建一个新对话分支，并把修改后的消息发送到新分支。原对话保持不变。',
-      'dialog.hintInterrupt': '当前回复会先停止，然后基于这条消息之前的内容创建新分支，并把修改后的消息发送过去。原对话保持不变。',
-      'dialog.hintFresh': '这是对话的第一条消息，修改后的内容将发送到一个新对话（沿用当前工作区与预设）。原对话保持不变。',
-      'dialog.hintFreshInterrupt': '当前回复会先停止，然后新建一个对话（沿用当前工作区与预设）并发送修改后的内容。原对话保持不变。',
+      'dialog.hint': '将基于这条消息之前的内容创建一个新对话分支，并把修改后的消息发送到新分支。原对话会被归档（不删除，可找回）。',
+      'dialog.hintInterrupt': '当前回复会先停止，然后基于这条消息之前的内容创建新分支，并把修改后的消息发送过去。原对话会被归档（不删除，可找回）。',
+      'dialog.hintFresh': '这是对话的第一条消息，修改后的内容将发送到一个新对话（沿用当前工作区与预设）。原对话会被归档（不删除，可找回）。',
+      'dialog.hintFreshInterrupt': '当前回复会先停止，然后新建一个对话（沿用当前工作区与预设）并发送修改后的内容。原对话会被归档（不删除，可找回）。',
       'dialog.send': '在新分支重发',
       'dialog.sendInterrupt': '停止并重发',
       'dialog.sendFresh': '新建并发送',
@@ -40,10 +40,10 @@ window.__ModuleLoader__.load({
       'action.unavailable.content': 'Messages with images, attachments, or references cannot be resent yet',
       'action.unavailable.missing': 'This message could not be located',
       'dialog.title': 'Edit and resend',
-      'dialog.hint': 'Creates a new conversation branch from the content before this message and sends the edited text there. The original conversation is left unchanged.',
-      'dialog.hintInterrupt': 'The current reply stops first, then a new branch is created from the content before this message and the edited text is sent there. The original conversation is left unchanged.',
-      'dialog.hintFresh': 'This is the first message of the conversation, so the edited text starts a new chat that keeps the current workspace and preset. The original conversation is left unchanged.',
-      'dialog.hintFreshInterrupt': 'The current reply stops first, then the edited text starts a new chat that keeps the current workspace and preset. The original conversation is left unchanged.',
+      'dialog.hint': 'Creates a new conversation branch from the content before this message and sends the edited text there. The original conversation is archived, not deleted.',
+      'dialog.hintInterrupt': 'The current reply stops first, then a new branch is created from the content before this message and the edited text is sent there. The original conversation is archived, not deleted.',
+      'dialog.hintFresh': 'This is the first message of the conversation, so the edited text starts a new chat that keeps the current workspace and preset. The original conversation is archived, not deleted.',
+      'dialog.hintFreshInterrupt': 'The current reply stops first, then the edited text starts a new chat that keeps the current workspace and preset. The original conversation is archived, not deleted.',
       'dialog.send': 'Resend in new branch',
       'dialog.sendInterrupt': 'Stop and resend',
       'dialog.sendFresh': 'Start new chat',
@@ -610,6 +610,17 @@ window.__ModuleLoader__.load({
             dialog.set(CLOSED)
             const workspace = ctx.get('uiWorkspace')
             if (workspace !== undefined && workspace !== null) workspace.openSession(childId)
+            // Cursor-style surface: the replaced conversation leaves the list
+            // instead of sitting beside the branch. The Host archives it — the
+            // events stay, so nothing is destroyed and unarchive brings it back.
+            const workspaces = ctx.get('workspaces')
+            if (workspaces !== undefined && workspaces !== null && typeof workspaces.archiveSession === 'function') {
+              try {
+                await workspaces.archiveSession(current.sessionId, { stopActivity: true })
+              } catch (error) {
+                console.warn('edit-resend: archiving the replaced session failed —', error)
+              }
+            }
           } catch (error) {
             const message = error !== null && error !== undefined && error.message !== undefined
               ? String(error.message)

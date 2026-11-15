@@ -1,6 +1,6 @@
 {
   "name": "dsh-edit-message",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Edit one of your own messages and resend it: the running reply stops, the conversation branches at the previous turn, and the edited text is sent into the branch.",
   "type": "module",
   "license": "MIT",

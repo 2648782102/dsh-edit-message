@@ -32,7 +32,8 @@ Hover (or tab into) one of your own messages. A small pencil appears in the gutt
 
 1. The conversation is forked at the `turn/end` of the turn before the edited message, so the new branch keeps everything that came before it.
 2. The edited text is sent into the fork as a normal prompt.
-3. The new branch opens once the message is sent, with the resent message already in it; the original conversation is left untouched.
+3. The new branch opens once the message is sent, with the resent message already in it;
+4. the replaced conversation is archived — it leaves the conversation list (the same surface Cursor gives you) but its events are kept, and **Unarchive** brings it back.
 
 ## Editing while the reply is still streaming
 
