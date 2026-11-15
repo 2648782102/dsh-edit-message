@@ -18,6 +18,12 @@ Market index source (paste into **Discover** > **Add index source**):
 https://raw.githubusercontent.com/2648782102/dsh-edit-message/main/market/index.json
 ```
 
+## Screenshots
+
+![The pencil beside your message](assets/screenshot-1.png)
+
+![The editor](assets/screenshot-2.png)
+
 ## Where it appears
 
 Hover (or tab into) one of your own messages. A small pencil appears in the gutter to the right of the bubble, level with its top edge. It is invisible until the row is hovered, sits entirely outside the message so it never covers text, and is styled as a plain icon like the host's own copy control rather than a floating card.
